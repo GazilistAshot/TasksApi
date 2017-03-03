@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ts:schema xmlns:el="http://www.example.org/element" xmlns:gp="http://www.example.org/graphicsPrimitives" xmlns:ts="http://www.example.org/testShema" xmlns:ut="http://www.example.org/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/testShema ../xsd/testShema.xsd ">
+  <ts:element id = "r1">
+    <el:coords x="118" y="96"/>
+  <el:name>resistor</el:name>
+  <el:view>
+  	<gp:line x1="119" y1="62" x2="119" y2="46" />
+  	<gp:line x1="119" y1="130" x2="119" y2="146"/>
+  	<gp:rect x="99" y="62" rectwidth="40" rectheight="67"/>
+  </el:view>
+  <el:pins>
+    <el:pin id="p1">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="119" y="46"/>
+      <ut:connect>false</ut:connect>
+    </el:pin>
+    <el:pin id="p2">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="119" y="146"/>
+      <ut:connect>true</ut:connect>
+      <ut:connectref elementID="r2"><ut:pinID>p1</ut:pinID></ut:connectref>
+    </el:pin>
+  </el:pins>
+  </ts:element>
+  <ts:element id = "r2">
+    <el:coords x="119" y="214"/>
+  <el:name>resistor</el:name>
+  <el:view>
+  	<gp:line x1="119" y1="180" x2="119" y2="164" />
+  	<gp:line x1="119" y1="248" x2="119" y2="264"/>
+  	<gp:rect x="99" y="180" rectwidth="40" rectheight="67"/>
+  </el:view>
+  <el:pins>
+    <el:pin id="p1">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="119" y="180"/>
+      <ut:connect>true</ut:connect>
+      <ut:connectref elementID="r1"><ut:pinID>p2</ut:pinID></ut:connectref>
+    </el:pin>
+    <el:pin id="p2">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="119" y="264"/>
+      <ut:connect>false</ut:connect>
+    </el:pin>
+  </el:pins>
+  </ts:element>
+  <ts:element id = "pt1">
+    <el:coords x="58" y="29"/>
+  <el:name>port</el:name>
+  <el:view>
+  </el:view>
+  <el:pins>
+    <el:pin id="p1">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="58" y="29"/>
+      <ut:connect>true</ut:connect>
+      <ut:connectref elementID="r1"><ut:pinID>p1</ut:pinID></ut:connectref>
+    </el:pin>
+  </el:pins>
+  </ts:element>
+  <ts:element id = "pt2">
+    <el:coords x="180" y="29"/>
+  <el:name>port</el:name>
+  <el:view>
+  </el:view>
+  <el:pins>
+    <el:pin id="p1">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="180" y="29"/>
+      <ut:connect>true</ut:connect>
+      <ut:connectref elementID="r1"><ut:pinID>p1</ut:pinID></ut:connectref>
+    </el:pin>
+  </el:pins>
+  </ts:element>
+  <ts:element id = "pt3">
+    <el:coords x="180" y="154"/>
+  <el:name>port</el:name>
+  <el:view>
+  </el:view>
+  <el:pins>
+    <el:pin id="p1">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="180" y="154"/>
+      <ut:connect>true</ut:connect>
+      <ut:connectref elementID="r1"><ut:pinID>p2</ut:pinID></ut:connectref>
+      <ut:connectref elementID="r2"><ut:pinID>p1</ut:pinID></ut:connectref>
+    </el:pin>
+  </el:pins>
+  </ts:element>
+  <ts:element id = "pt4">
+    <el:coords x="119" y="214"/>
+  <el:name>port</el:name>
+  <el:view>
+  </el:view>
+  <el:pins>
+    <el:pin id="p1">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="179" y="280"/>
+      <ut:connect>true</ut:connect>
+      <ut:connectref elementID="r2"><ut:pinID>p2</ut:pinID></ut:connectref>
+    </el:pin>
+  </el:pins>
+  </ts:element>
+  <ts:element id = "pt5">
+    <el:coords x="59" y="280"/>
+  <el:name>port</el:name>
+  <el:view>
+  </el:view>
+  <el:pins>
+    <el:pin id="p1">
+      <ut:visible>true</ut:visible>
+      <ut:coords x="59" y="280"/>
+      <ut:connect>true</ut:connect>
+      <ut:connectref elementID="r2"><ut:pinID>p2</ut:pinID></ut:connectref>
+    </el:pin>
+  </el:pins>
+  </ts:element>
+  <ts:node id="n1">
+  	<ut:coords x="119" y="29"/>
+  	<ut:element elementID="r1"><ut:pinID>p1</ut:pinID></ut:element>
+  	<ut:element elementID="pt1"><ut:pinID>p1</ut:pinID></ut:element>
+  	<ut:element elementID="pt2"><ut:pinID>p1</ut:pinID></ut:element>
+  </ts:node>
+  <ts:node id="n2">
+  	<ut:coords x="119" y="154"/>
+  	<ut:element elementID="r1"><ut:pinID>p2</ut:pinID></ut:element>
+  	<ut:element elementID="r2"><ut:pinID>p1</ut:pinID></ut:element>
+  	<ut:element elementID="pt3"><ut:pinID>p1</ut:pinID></ut:element>
+  </ts:node>
+  <ts:node id="n3">
+  	<ut:coords x="119" y="280"/>
+  	<ut:element elementID="r2"><ut:pinID>p2</ut:pinID></ut:element>
+  </ts:node>
+  <ts:rules>ts:rules</ts:rules>
+</ts:schema>
